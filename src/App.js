@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useMemo } from "react";
 import Card from "./Card";
-import './app.scss'
+import './app.scss';
+import Pagination from './Paginations'
+let PageSize = 10;
+
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [groupData,setGroupData] = useState(null)
   const [category,setAllCategory] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    const currentTableData = posts && posts.length>0 && posts.slice(firstPageIndex, lastPageIndex);
+  // }, []);
+
   useEffect(() => {
     fetch("https://emojihub.yurace.pro/api/all")
       .then((response) => response.json())
@@ -38,17 +50,24 @@ const App = () => {
 
   return (
     <div className="main-container">
-        {posts.map((ele, index) => {
+      
+        {currentTableData.length>0 && currentTableData.map((ele, index) => {
           // debugger
 
-          let other = ele.htmlCode.toString();
-
+{console.log(currentTableData,"@#%#$%$#",posts)}
           return (
             <div style={{ padding: "10px" }}>
               <Card ele={ele} />
             </div>
           );
         })}
+         <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={posts.length}
+        pageSize={PageSize}
+        onPageChange={page => setCurrentPage(page)}
+      />
     </div>
   );
 };
