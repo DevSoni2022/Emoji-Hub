@@ -1,10 +1,10 @@
 import React from 'react'
 import './cart.scss'
-const Card = ({ele}) => {
+const Card = ({ele,isMobile}) => {
     let other = ele.htmlCode.toString();
 
   return (
-    <div className='Card' style={{ padding: "10px" }}>
+    <div className={isMobile ? 'Card mob' :'Card'} style={{ padding: "10px" }}>
         <span
       dangerouslySetInnerHTML={{
         __html: other,

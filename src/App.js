@@ -46,13 +46,22 @@ const App = () => {
   }, []);
 
 
-  console.log(groupData,"#$%#$@%#$");
-
+ const isMobile = ()=>{
+  let check = false;
+  
+      (function (a) {
+          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(a))
+              check = true;
+      })(navigator.userAgent || navigator.vendor || window.opera);
+  
+  return check;
+ }
+ console.log(isMobile(),"%$^#%^%")
   return (
     <>
           <h1>Awesome  list of Emojis </h1>
 
-    <div className="main-container">
+    <div className={isMobile() ? "main-container main-mob" : "main-container"}>
       
         {currentTableData.length>0 && currentTableData.map((ele, index) => {
           // debugger
@@ -60,7 +69,7 @@ const App = () => {
 {console.log(currentTableData,"@#%#$%$#",posts)}
           return (
             <div style={{ padding: "10px" }}>
-              <Card ele={ele} />
+              <Card ele={ele} isMobile = {isMobile()} />
             </div>
           );
         })}
