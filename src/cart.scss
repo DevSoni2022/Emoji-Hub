@@ -1,0 +1,47 @@
+.Card {
+  width: 500px;
+  padding: 8px 11px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 20px rgba(57, 65, 73, 0.102);
+  box-shadow: 0 3px 20px rgba(57, 65, 73, 0.102);
+  border: 1.8px solid #d1d4de;
+  text-align: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;  .group {
+    font-family: "dinregular";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #01a685;
+    padding-left: 5px;
+    opacity: 0.7;
+    padding-top: 3px;
+  }
+  .name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    opacity: 0.9;
+    font-family: 'dinbold';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #080a08;
+  }
+  .category {
+    color: #717263;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    line-height: 24px;
+    opacity: .9;
+  }
+}
