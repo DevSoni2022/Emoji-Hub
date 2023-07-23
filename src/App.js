@@ -49,6 +49,9 @@ const App = () => {
   console.log(groupData,"#$%#$@%#$");
 
   return (
+    <>
+          <h1>Awesome  list of Emojis </h1>
+
     <div className="main-container">
       
         {currentTableData.length>0 && currentTableData.map((ele, index) => {
@@ -69,6 +72,8 @@ const App = () => {
         onPageChange={page => setCurrentPage(page)}
       />
     </div>
+    </>
+
   );
 };
 
